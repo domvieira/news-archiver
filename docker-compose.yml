@@ -1,0 +1,7 @@
+version: '3'
+services:
+  puppeteer:
+    build:
+      context: .
+    volumes:
+      - ./app:/app

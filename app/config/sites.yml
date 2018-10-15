@@ -1,0 +1,24 @@
+sites:
+  - name: CNN
+    url: https://www.cnn.com
+    filename: cnn.png
+
+  - name: FOX News
+    url: https://www.foxnews.com
+    filename: foxnews.png
+    
+  - name: MSNBC
+    url: https://www.msnbc.com
+    filename: msnbc.png
+
+  - name: ABC News
+    url: https://abcnews.go.com
+    filename: abcnews.png
+    
+  - name: NBC News
+    url: https://www.nbcnews.com
+    filename: nbcnews.png
+    
+  - name: CBS News
+    url: https://www.cbsnews.com
+    filename: cbsnews.png
