@@ -18,7 +18,7 @@ You can use this bot as practical example for starting your own!
 
 1. Clone the repo
 2. ```docker-compose build```
-3. ```docker-compose run puppeteer```
+3. ```docker-compose run```
 
 Screenshots will be saved in the `screenshots` directory.
 
