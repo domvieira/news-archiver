@@ -18,7 +18,3 @@ sites:
   - name: NBC News
     url: https://www.nbcnews.com
     filename: nbcnews.png
-    
-  - name: CBS News
-    url: https://www.cbsnews.com
-    filename: cbsnews.png
