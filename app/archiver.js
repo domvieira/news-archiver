@@ -11,20 +11,42 @@ try {
   console.log(e);
 }
 
-// Create the screenshot directory
-var dir = './screenshots';
-
-if (!fs.existsSync(dir)){
-    fs.mkdirSync(dir);
+// Use the current date/time as a folder name
+function folderNameGen() {
+  var now = new Date();
+  var y = now.getFullYear();
+  var m = now.getMonth() + 1;
+  var d = now.getDate();
+  var mm = m < 10 ? '0' + m : m;
+  var dd = d < 10 ? '0' + d : d;
+  var hour = now.getHours();
+  var min = now.getMinutes();
+  var ms = now.getMilliseconds();
+  
+  return '' + y + mm + dd + '_' + hour + min + '_' + ms;
 }
 
-console.log('Capturing the following sites:');
+// Checks to make sure a directory is there. If not, create it.
+function dirExist(d) {
+  if (!fs.existsSync(d)){
+    fs.mkdirSync(d);
+	console.log('  creating ' + d);
+  }
+}
+
+var screenMainDir = './screenshots/';
+var snapshotDir = screenMainDir + folderNameGen();
+
+// Make sure the above directories are available
+console.log('Checking to make sure screenshots directories exist.');
+dirExist(screenMainDir);
+dirExist(snapshotDir);
+
+console.log('Capturing sites.....');
 
 // Loop through the sites and get a screenshot
 for (let i = 0, len = sites.length; i < len; i++) {
   let site = sites[i];
-  
-  console.log('  ' + site.url);
   
   (async () => {
     const browser = await puppeteer.launch({
@@ -36,7 +58,7 @@ for (let i = 0, len = sites.length; i < len; i++) {
 	
 	try {
       await page.goto(site.url);
-      await page.screenshot({path: dir + '/' + site.filename});	  
+      await page.screenshot({path: snapshotDir + '/' + site.filename});	  
 	} catch (error) {
       console.log(error);
     }
